@@ -1,0 +1,12 @@
+[build]
+
+# Pi 2/3/4
+[target.armv7-unknown-linux-gnueabihf]
+linker = "arm-linux-gnueabihf-gcc"
+
+# (Optional) Set default target for cargo build
+# target = "armv7-unknown-linux-gnueabihf"
+# rustflags = ["-C", "linker=arm-none-linux-gnueabihf-gcc"]
+
+[env]
+PI_TCP_SERVER="172.30.1.41:8888"

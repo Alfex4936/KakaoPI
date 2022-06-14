@@ -1,0 +1,40 @@
+파이1 = TCP 클라이언트 (각종 센서 연결됨)
+파이2 = TCP 서버, 카카오톡 챗봇 서버
+파이3 = TCP 클라이언트 (LCD)
+
+실행 순서는 파이2 TCP 서버 -> 파이2 카톡 서버 -> 파이1 TCP 클라이언트 -> 파이3 TCP 클라이언트
+
+1. 파이1 클라이언트에서 아래 명령어로 바이너리를 만듭니다.
+
+gcc -Wall client.c gpio.c pwm.c spi.c `pkg-config python3-embed --libs --cflags` -lpthread -o client
+
+또는 make pi1
+
+./client
+
+2. 파이3 클라이언트에서 아래 명령어로 바이너리를 만듭니다.
+
+gcc -Wall client_lcd.c soft_lcd.c soft_i2c.c -lwiringPi -o client_lcd
+
+또는 make pi3
+
+./client_lcd
+
+3. 파이2 서버에서 아래 명령어로 카톡 서버와 TCP 서버를 실행합니다.
+
+./kakao_server
+./server
+
+빌드하려면
+Rust:
+TARGET_ARCH=armv7-unknown-linux-gnueabihf
+cargo build --release --target=${TARGET_ARCH}
+cp target/armv7-unknown-linux-gnueabihf/release/pi_kakao pi_kakao
+scp -P 11112 pi_kakao pi@IP:~/
+
+C TCP:
+make pi2
+
+4. 실행
+
+순서는 카톡 서버 -> 파이1 TCP 클라이언트 -> 파이3 TCP 클라이언트

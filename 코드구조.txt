@@ -1,0 +1,5 @@
+파이1 TCP 클라이언트: client.c, mypi.py
+
+파이2 TCP서버, 카카오톡 챗봇 서버: server.c, src폴더 및 Cargo.toml
+
+파이3 TCP 클라이언트: client_lcd.c
