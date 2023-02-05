@@ -1,5 +1,23 @@
 # 카카오파이
 
+Using AWS S3 for photo storage, C language for socket communication, Python with OpenCV for face detection, and Rust for a chatbot server.
+
+The project, `KakaoPi`, consists of three Raspberry Pi devices, each with its unique role.
+
+The second Raspberry Pi acts as a TCP server and houses the Rust-based chatbot server, allowing for control of other devices through the KakaoTalk app.
+
+The first Raspberry Pi acts as a TCP client and is equipped with a camera, buttons, LED lights, and sensors.
+
+The third Raspberry Pi is also a TCP client, responsible for controlling an LCD screen.
+
+With this setup, the Raspberry Pi Communication project is able to accomplish a wide range of tasks. 
+
+For example, a message sent through the KakaoTalk app to the second Raspberry Pi's chatbot server could instruct the first Raspberry Pi to take a picture.
+
+The picture is then uploaded to AWS S3, allowing for viewing from anywhere with internet access.
+
+This project is a true example of mixing multiple programming languages (C + Py + Rust), wireless communication between pies and kakaotalk chatbot api to control pies by KakaoTalk.
+
 [![kakaopi_video](https://img.youtube.com/vi/yu4VTjWsiuo/maxresdefault.jpg)](https://youtu.be/yu4VTjWsiuo)
 
 ![KakaoTalk_20220607_170805681](https://user-images.githubusercontent.com/2356749/172969187-4b86b295-89aa-4f79-9abb-0c8c2d58c65d.jpg)
